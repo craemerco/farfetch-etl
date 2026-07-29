@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "farfetch-etl"
+version = "0.1.0"
+description = "ETL Pipeline für den Farfetch CSV Export"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+
+authors = [
+    { name = "Andreas Kessler" }
+]
+
+dependencies = [
+    "pandas>=2.3.0",
+    "numpy>=2.3.0",
+    "duckdb>=1.3.0",
+    "openpyxl>=3.1.5",
+    "pyarrow>=21.0.0",
+    "loguru>=0.7.3",
+    "charset-normalizer>=3.4.3",
+    "python-dateutil>=2.9.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4",
+    "black>=25.1",
+    "ruff>=0.12",
+    "mypy>=1.17"
+]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests"
+]
